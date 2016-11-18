@@ -14,24 +14,24 @@ const app = express();
 // Serve application file depending on environment
 app.get('/app.js', (req, res) => {
   if (process.env.PRODUCTION) {
-    res.sendFile(__dirname + '/build/app.js');
+    res.sendFile(__dirname + '/docs/app.js');
   } else {
-    res.redirect('//localhost:9090/build/app.js');
+    res.redirect('//localhost:9090/docs/app.js');
   }
 });
 
 // Serve aggregate stylesheet depending on environment
 app.get('/style.css', (req, res) => {
   if (process.env.PRODUCTION) {
-    res.sendFile(__dirname + '/build/style.css');
+    res.sendFile(__dirname + '/docs/style.css');
   } else {
-    res.redirect('//localhost:9090/build/style.css');
+    res.redirect('//localhost:9090/docs/style.css');
   }
 });
 
 // Serve index page
 app.get('*', (req, res) => {
-  res.sendFile(__dirname + '/build/index.html');
+  res.sendFile(__dirname + '/docs/index.html');
 });
 
 

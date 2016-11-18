@@ -9,7 +9,7 @@ module.exports = {
   entry: "./src/main",
 
   output: {
-    path: __dirname + "/build/",
+    path: __dirname + "/docs/",
     filename: "app.js"
   },
 
