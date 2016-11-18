@@ -1,6 +1,6 @@
 # Build
-build/app.js
-build/style.css
+docs/app.js
+docs/style.css
 
 # Logs
 logs
@@ -11,7 +11,7 @@ logs
 coverage
 
 # Compiled binary addons (http://nodejs.org/api/addons.html)
-build/Release
+docs/Release
 
 # Dependency directory
 node_modules
