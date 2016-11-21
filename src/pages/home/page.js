@@ -61,6 +61,10 @@ class HomePage extends React.Component {
         this.props.updateZip(e.target.value);
     }
 
+    _renderContactCards() {
+        return <ContactCards contacts={repsContactInfos} />
+    }
+
 	render() {
 		return (
             <div style={pageStyles.root}>
@@ -109,6 +113,7 @@ class HomePage extends React.Component {
                                 fullWidth={true}
                                  />
                         </GridTile>
+                        {this._renderContactCards()}
                     </GridList>
 
                 <div style={pageStyles.divFoot}>
@@ -123,7 +128,8 @@ class HomePage extends React.Component {
 
 function mapStateToProps(state) {
 	return {
-        zip: state.uiState.zip
+        zip: state.uiState.zip,
+        repsContactInfos: state.reps.contactInfos
 	}
 }
 
