@@ -6,6 +6,8 @@ import styles from "./style.css";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
+import AppBar from 'material-ui/AppBar';
+import {BottomNavigation, BottomNavigationItem} from 'material-ui/BottomNavigation';
 
 //actions
 import { getRepsByZip } from 'actions/reps';
@@ -19,12 +21,11 @@ const pageStyles = {
   root: {
     display: 'flex',
     flexWrap: 'wrap',
-    justifyContent: 'space-around',
-    height:'100%'
+    justifyContent: 'space-around'
   },
   gridList: {
     width: 500,
-    height: '100%'
+    paddingTop: '2em' 
   }
 };
 
@@ -41,7 +42,12 @@ class HomePage extends React.Component {
 	render() {
 		return (
             <div style={pageStyles.root}>
-               <GridList
+                <AppBar
+                    title="Be Heard"
+                    showMenuIconButton={false}
+                >
+                </AppBar>  
+                <GridList
                     cols={2}
                     cellHeight={'auto'}
                     padding={1}
@@ -54,7 +60,7 @@ class HomePage extends React.Component {
                         <h2
                             className='header'
                         >
-                            Find your Congress representative and let yourself be heard
+                            FIND YOUR CONGRESSIONAL REPRESENTATIVES AND LET YOURSELF BE HEARD
                         </h2>
                     </GridTile>
                     <GridTile
@@ -63,7 +69,6 @@ class HomePage extends React.Component {
                     >
                         <TextField
                             floatingLabelText="ZIP Code"
-                            floatingLabelStyle='zip'
                             value={this.props.zip}
                             onChange={this._handleZipChange}
                             fullWidth={true}
@@ -81,6 +86,7 @@ class HomePage extends React.Component {
                              />
                     </GridTile>
                 </GridList>
+                <footer id='footer'>Inspired By: ></footer>
             </div>
 		);
 	}

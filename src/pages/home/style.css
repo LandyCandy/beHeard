@@ -1,7 +1,13 @@
-.header {
-	text-align: center;
-}
+h2 {
+    color: #566573;
+    font-weight: bold;
+    text-align: center;
+  }
 
-.zip {
-	text-align: center;
+#footer {
+	color: #566573;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	margin-left: 25%
 }
