@@ -26,6 +26,18 @@ const pageStyles = {
   gridList: {
     width: 500,
     paddingTop: '2em' 
+  },
+  h2: {
+    color: '#566573',
+    fontWeight: 'bold',
+    textAlign: 'center'
+  },
+  footer: {
+    color: '#566573',
+    position: 'fixed',
+    bottom: 0,
+    width: '100%',
+    marginLeft: '25%'
   }
 };
 
@@ -58,7 +70,7 @@ class HomePage extends React.Component {
                         rows={1}
                     >
                         <h2
-                            className='header'
+                            style={pageStyles.h2}
                         >
                             FIND YOUR CONGRESSIONAL REPRESENTATIVES AND LET YOURSELF BE HEARD
                         </h2>
@@ -86,7 +98,7 @@ class HomePage extends React.Component {
                              />
                     </GridTile>
                 </GridList>
-                <footer id='footer'>Inspired By: ></footer>
+                <footer style={pageStyles.footer}>Inspired By: ></footer>
             </div>
 		);
 	}
