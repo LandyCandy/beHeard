@@ -17,27 +17,37 @@ import {GridList, GridTile} from 'material-ui/GridList';
 import IconButton from 'material-ui/IconButton';
 import StarBorder from 'material-ui/svg-icons/toggle/star-border';
 
+const spreadSheet = 'https://docs.google.com/spreadsheets/d/174f0WBSVNSdcQ5_S6rWPGB3pNCsruyyM_ZRQ6QUhGmo/htmlview';
+
 const pageStyles = {
   root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around'
+    justifyContent: 'space-around',
+    minHeight: '100%',
+    position: 'relative'
+  },
+  header: {
+    height: '4em'
   },
   gridList: {
     width: 500,
-    paddingTop: '2em' 
+    paddingTop: '5em',
+    paddingBottom: '2em',
+    margin: '0 auto'
   },
   h2: {
     color: '#566573',
     fontWeight: 'bold',
     textAlign: 'center'
   },
+  divFoot:{
+    position: 'absolute',
+    bottom: '1em',
+    width: '100%',
+  },
   footer: {
     color: '#566573',
-    position: 'fixed',
-    bottom: 0,
-    width: '100%',
-    marginLeft: '25%'
+    height: '1em',
+    textAlign: 'center'
   }
 };
 
@@ -54,51 +64,58 @@ class HomePage extends React.Component {
 	render() {
 		return (
             <div style={pageStyles.root}>
-                <AppBar
-                    title="Be Heard"
-                    showMenuIconButton={false}
-                >
-                </AppBar>  
-                <GridList
-                    cols={2}
-                    cellHeight={'auto'}
-                    padding={1}
-                    style={pageStyles.gridList}
-                >
-                    <GridTile
+                <div style={pageStyles.header}>
+                    <AppBar
+                        title="Be Heard"
+                        showMenuIconButton={false}
+                    >
+                    </AppBar>
+                </div>
+                    <GridList
                         cols={2}
-                        rows={1}
+                        cellHeight={'auto'}
+                        padding={1}
+                        style={pageStyles.gridList}
                     >
-                        <h2
-                            style={pageStyles.h2}
+                        <GridTile
+                            cols={2}
+                            rows={1}
                         >
-                            FIND YOUR CONGRESSIONAL REPRESENTATIVES AND LET YOURSELF BE HEARD
-                        </h2>
-                    </GridTile>
-                    <GridTile
-                      cols={2}
-                      rows={1}
-                    >
-                        <TextField
-                            floatingLabelText="ZIP Code"
-                            value={this.props.zip}
-                            onChange={this._handleZipChange}
-                            fullWidth={true}
-                        />
-                    </GridTile>
-                    <GridTile
-                      cols={2}
-                      rows={1}
-                    >
-                        <RaisedButton
-                            onChange={this._handleZipSubmit}
-                            label="Find Your Reps"
-                            primary={true}                            
-                            fullWidth={true}
-                             />
-                    </GridTile>
-                </GridList>
-                <footer style={pageStyles.footer}>Inspired By: ></footer>
+                            <h2
+                                style={pageStyles.h2}
+                            >
+                                FIND YOUR CONGRESSIONAL REPRESENTATIVES AND LET YOURSELF BE HEARD
+                            </h2>
+                        </GridTile>
+                        <GridTile
+                          cols={2}
+                          rows={1}
+                        >
+                            <TextField
+                                floatingLabelText="ZIP Code"
+                                value={this.props.zip}
+                                onChange={this._handleZipChange}
+                                fullWidth={true}
+                            />
+                        </GridTile>
+                        <GridTile
+                          cols={2}
+                          rows={1}
+                        >
+                            <RaisedButton
+                                onChange={this._handleZipSubmit}
+                                label="Find Your Reps"
+                                primary={true}
+                                fullWidth={true}
+                                 />
+                        </GridTile>
+                    </GridList>
+
+                <div style={pageStyles.divFoot}>
+                    <footer style={pageStyles.footer}>
+                        Inspired by the <a href={spreadSheet}>"&#147;We&#146;re His Problem Now&#148; Call Sheet"</a>
+                    </footer>
+                </div>
             </div>
 		);
 	}

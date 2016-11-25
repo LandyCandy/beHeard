@@ -1,0 +1,7 @@
+html, body, #app, #container {
+	height: 100%;
+}
+
+div {
+	display: block
+}
