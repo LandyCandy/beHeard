@@ -8,10 +8,11 @@ import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import AppBar from 'material-ui/AppBar';
 import {BottomNavigation, BottomNavigationItem} from 'material-ui/BottomNavigation';
+import ContactCards from 'common/components/ContactCards';
 
 //actions
-import { getRepsByZip } from 'actions/reps';
-import { updateZip } from 'actions/uiActions';
+import {getRepsByZip} from 'actions/reps';
+import {updateZip} from 'actions/uiActions';
 
 import {GridList, GridTile} from 'material-ui/GridList';
 import IconButton from 'material-ui/IconButton';
@@ -62,8 +63,9 @@ class HomePage extends React.Component {
     }
 
     _renderContactCards() {
-        return <ContactCards contacts={repsContactInfos} />
-    }
+        const {contactInfo} = this.props;
+        return <ContactCards contacts={contactInfo} />
+      }
 
 	render() {
 		return (
@@ -98,7 +100,7 @@ class HomePage extends React.Component {
                             <TextField
                                 floatingLabelText="ZIP Code"
                                 value={this.props.zip}
-                                onChange={this._handleZipChange}
+                                onChange={::this._handleZipChange}
                                 fullWidth={true}
                             />
                         </GridTile>
@@ -107,7 +109,7 @@ class HomePage extends React.Component {
                           rows={1}
                         >
                             <RaisedButton
-                                onChange={this._handleZipSubmit}
+                                onClick={::this._handleZipSubmit}
                                 label="Find Your Reps"
                                 primary={true}
                                 fullWidth={true}
@@ -129,7 +131,7 @@ class HomePage extends React.Component {
 function mapStateToProps(state) {
 	return {
         zip: state.uiState.zip,
-        repsContactInfos: state.reps.contactInfos
+        contactInfo: state.reps.contactInfo
 	}
 }
 

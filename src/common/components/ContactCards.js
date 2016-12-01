@@ -1,15 +1,14 @@
 import React from 'react';
 
-import ContactCard from 'components/common/ContactCard';
+import ContactCard from 'common/components/ContactCard';
 
 const ContactCards = ({ contacts }) => {
     const cards = contacts.map(contact => <ContactCard contact={contact} />);
-
     return (
-        <div className='contact-cards'>
-            {cards}
+        <div>
+          {cards}
         </div>
-    )
+    );
 }
 
-export ContactCards;
+export default ContactCards;

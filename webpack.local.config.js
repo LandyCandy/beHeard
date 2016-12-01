@@ -19,6 +19,7 @@ module.exports = {
 
   // Set entry point to ./src/main and include necessary files for hot load
   entry:  [
+    "whatwg-fetch",
     "webpack-dev-server/client?http://localhost:9090",
     "./src/main"
   ],

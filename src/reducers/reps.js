@@ -1,13 +1,15 @@
 import { RECEIVE_REPS } from 'actions/constants';
 
 const initState = {
-    reps: []
+    contactInfo: []
 }
 const reps = (state = initState, { type, payload}) => {
     switch(type) {
         case RECEIVE_REPS:
-            return {...state, contactInfos: payload.reps}
+            return {...state, contactInfo: payload.reps}
         default:
             return state;
     }
 }
+
+export default reps;

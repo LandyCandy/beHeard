@@ -6,6 +6,6 @@ import reps from 'reducers/reps';
 export default combineReducers({
 	//routing
 	routing: routerReducer,
-    reps,
-    uiState
+  reps,
+  uiState
 });
